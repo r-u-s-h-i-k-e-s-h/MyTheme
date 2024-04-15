@@ -71,3 +71,18 @@ credit: FireIsGood
 
 ![](https://github.com/r-u-s-h-i-k-e-s-h/MyTheme/blob/main/assets/kanban-light.png)
 
+</details>
+
+
+## Progress bar 
+
+<details>
+  <summary>Click to expand/collapse</summary>
+
+![](https://github.com/r-u-s-h-i-k-e-s-h/MyTheme/blob/main/assets/progress-dark.png)
+
+![](https://github.com/r-u-s-h-i-k-e-s-h/MyTheme/blob/main/assets/progress-light.png)
+
+</details>
+
+
