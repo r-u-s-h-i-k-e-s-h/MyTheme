@@ -1,0 +1,1625 @@
+/* ------------------ variables ------------------ */
+body {
+  --custom-thin-width: var(--table-border-width);
+  --custom-gray-color: var(--table-border-color);
+  --custom-gray-bg: var(--code-background);
+  --custom-accent: var(--color-accent);
+  --custom-radius: var(--radius-m);
+  --custom-h-weight: bold;
+  --custom-h-font: satoshi;
+}
+
+/* ------------------ code block ------------------ */
+
+/* LP */
+.cm-s-obsidian div.HyperMD-codeblock-begin-bg {
+  background: var(--custom-gray-bg);
+  border-top: var(--custom-thin-width) solid var(--custom-gray-color);
+  border-top-left-radius: var(--custom-radius);
+  border-top-right-radius: var(--custom-radius);
+}
+.cm-s-obsidian div.HyperMD-codeblock-end-bg {
+  background: var(--custom-gray-bg);
+  border-bottom: var(--custom-thin-width) solid var(--custom-gray-color);
+  border-bottom-left-radius: var(--custom-radius);
+  border-bottom-right-radius: var(--custom-radius);
+}
+.cm-s-obsidian div.HyperMD-codeblock-bg {
+  border-right: var(--custom-thin-width) solid var(--custom-gray-color);
+  border-left: var(--custom-thin-width) solid var(--custom-gray-color);
+}
+
+/* RM */
+.markdown-rendered pre {
+  border: var(--custom-thin-width) solid var(--custom-gray-color);
+  border-radius: var(--custom-radius);
+}
+
+/* ------------------ inline code ------------------ */
+
+/* RN */
+p > code,
+li code,
+ul code,
+ol code {
+  background: var(--custom-gray-bg) !important;
+  border: var(--custom-thin-width) solid var(--custom-gray-color);
+  color: var(--custom-accent) !important;
+}
+
+/* LP */
+.cm-inline-code,
+.cm-s-obsidian
+  span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(
+    .obsidian-search-match-highlight
+  ) {
+  background: var(--custom-gray-bg) !important;
+  border: var(--custom-thin-width) solid var(--custom-gray-color);
+  color: var(--custom-accent);
+}
+
+/*
+additional things
+*/
+
+/* inside kanban */
+.kanban-plugin .markdown-preview-view code {
+  font-family: var(--font-monospace);
+  background: var(--custom-gray-bg) !important;
+  padding: 0 var(--size-2-2);
+  border-radius: var(--radius-s) !important;
+}
+
+/* ------------------ callout ------------------ */
+
+body {
+  --callout-border-width: var(--table-border-width);
+  --callout-border-opacity: 0.5;
+  --callout-radius: var(--custom-radius);
+  --callout-padding: var(--size-4-3) var(--size-4-4) var(--size-4-3)
+    var(--size-4-5);
+}
+
+/* ------------------ table ------------------ */
+
+body {
+  --table-header-background: hsla(var(--interactive-accent-hsl), 0.8);
+  --table-header-background-hover: hsla(var(--interactive-accent-hsl), 0.6);
+}
+
+/* alternate bg */
+:not(.cards table.dataview):is(
+    .markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
+    .markdown-rendered table
+  )
+  tbody
+  tr:nth-of-type(2n) {
+  background-color: var(--background-secondary);
+}
+:not(.cards table.dataview):is(
+    .markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
+    .markdown-rendered table
+  )
+  tbody
+  tr:nth-of-type(2n + 1) {
+  background-color: var(--background-primary);
+}
+
+/*
+additional things
+*/
+
+/* normalizing dataview */
+.table-view-table:not(.cards table.dataview) > tbody > tr > td {
+  border: var(--custom-thin-width) solid var(--custom-gray-color);
+}
+
+.table-view-table > thead > tr > th {
+  border: var(--custom-thin-width) solid var(--table-header-border-color);
+}
+
+/* vertical center alignment */
+.dataview.table-view-table > :is(thead, tbody) > tr > :is(th, td) {
+  vertical-align: middle;
+}
+
+/* ------------------ list styling ------------------ */
+
+/* ordered */
+.list-number,
+ol > li::marker,
+ul > li::marker {
+  color: var(--custom-accent);
+}
+
+/* unordered [credit: sailKite] */
+:is(.cm-formatting-list-ul, .markdown-rendered ul > li) > .list-bullet::after {
+  outline: 1.3px solid var(--custom-accent);
+  background-color: var(--custom-accent);
+}
+
+:is(
+    ul:not(li > ul) > li > ul > li,
+    ul:not(li > ul) > li > ul > li > ul > li > ul > li,
+    ul:not(li > ul) > li > ul > li > ul > li > ul > li > ul > li > ul > li,
+    ul:not(li > ul)
+      > li
+      > ul
+      > li
+      > ul
+      > li
+      > ul
+      > li
+      > ul
+      > li
+      > ul
+      > li
+      ul
+      > li
+      > ul
+      > li
+  )
+  > .list-bullet::after,
+:is(
+    .HyperMD-list-line-2,
+    .HyperMD-list-line-4,
+    .HyperMD-list-line-6,
+    .HyperMD-list-line-8
+  )
+  .cm-formatting-list-ul
+  > .list-bullet::after {
+  background-color: unset !important;
+}
+
+/*
+additional things
+*/
+
+/* indent fix */
+body {
+  --list-indent: 2em;
+}
+
+/* ------------------ progress bar ------------------ */
+
+:is(
+    .markdown-preview-view,
+    .markdown-rendered,
+    .markdown-source-view.is-live-preview
+  )
+  progress {
+  height: 0.8rem;
+  vertical-align: middle;
+}
+
+progress::-webkit-progress-bar {
+  background: var(--background-secondary-alt) !important;
+  border-radius: var(--custom-radius) !important;
+}
+
+progress[value^="1"]::-webkit-progress-value,
+progress[value^="2"]::-webkit-progress-value {
+  background: var(--color-red) !important;
+  border-radius: var(--custom-radius);
+}
+
+progress[value^="3"]::-webkit-progress-value,
+progress[value^="4"]::-webkit-progress-value {
+  background: var(--color-orange) !important;
+  border-radius: var(--custom-radius);
+}
+
+progress[value^="5"]::-webkit-progress-value,
+progress[value^="6"]::-webkit-progress-value {
+  background: var(--color-yellow) !important;
+  border-radius: var(--custom-radius);
+}
+
+progress[value^="7"]::-webkit-progress-value,
+progress[value^="8"]::-webkit-progress-value {
+  background: var(--color-green) !important;
+  border-radius: var(--custom-radius);
+}
+
+progress[value^="9"]::-webkit-progress-value,
+progress[value^="10"]::-webkit-progress-value {
+  background: var(--color-cyan) !important;
+  border-radius: var(--custom-radius);
+}
+
+/* ------------------ tab container ------------------ */
+
+.workspace-tab-header-container {
+  border-bottom: none;
+  background: unset;
+}
+
+.workspace .mod-root .workspace-tab-header.is-active::before,
+.workspace .mod-root .workspace-tab-header.is-active::after {
+  display: none;
+}
+
+.workspace .mod-root .workspace-tab-header-inner::after {
+  display: none;
+}
+
+/*
+active tab
+*/
+
+.workspace .mod-root .workspace-tab-header.is-active {
+  background: none;
+  box-shadow: none;
+}
+
+.workspace
+  .mod-root
+  .workspace-tab-header.is-active
+  .workspace-tab-header-inner {
+  background: hsla(var(--interactive-accent-hsl), 0.6);
+  color: var(--text-normal);
+}
+
+.workspace .mod-root .workspace-tab-header-container-inner {
+  padding: 0px 0 0px 5px;
+  margin: 5px 0 2px -2px;
+}
+
+.workspace
+  .mod-root
+  .workspace-tab-header[data-type="markdown"]
+  .workspace-tab-header-inner-icon {
+  display: flex;
+  color: var(--text-normal);
+}
+
+/*
+additional things
+*/
+
+/* windows buttons */
+
+.titlebar-button-container {
+  background-color: transparent !important;
+  color: var(--text-normal);
+}
+
+.titlebar-button:hover {
+  background-color: hsla(var(--interactive-accent-hsl), 0.9);
+  color: var(--text-normal);
+}
+
+/* ------------------ search ------------------ */
+
+.suggestion-container.mod-search-suggestion .suggestion {
+  color: var(--custom-accent);
+  font-weight: 400;
+}
+
+.list-item-part.mod-extended {
+  color: var(--text-normal);
+}
+
+.search-suggest-info-text {
+  color: var(--text-normal);
+}
+
+/* search result */
+.search-result-file-matched-text {
+  background-color: unset;
+  font-weight: bold;
+  color: var(--custom-accent);
+}
+
+.input-right-decorator {
+  color: var(--custom-accent);
+}
+
+/* ------------------ timeline callout ------------------ */
+/* credit: FireIsGood (https://ko-fi.com/fireisgood) */
+
+body {
+  --timeline-title-color: var(--text-normal);
+  --timeline-title-size: var(--text-size);
+  --timeline-title-width: 160px;
+
+  --timeline-line-color: var(--color-base-35);
+  --timeline-line-margin: 16px;
+  --timeline-line-width: 4px;
+  --timeline-line-style: solid;
+
+  --timeline-dot-color: var(--color-base-70);
+  --timeline-dot-size: 32px;
+  --timeline-dot-radius: 100%;
+  --timeline-dot-border-color: var(--background-primary);
+  --timeline-dot-border-size: 6px;
+  --timeline-dot-offset-x: -18px;
+  --timeline-dot-offset-y: -2px;
+
+  --timeline-card-margin: 0px;
+  --timeline-card-background-color: var(--color-base-30);
+  --timeline-card-padding-x: 10px;
+  --timeline-card-padding-y: 16px;
+}
+
+[data-callout-metadata~="timeline"] {
+  order: 1;
+  padding: 0;
+  margin: 0;
+  border: none;
+  display: grid;
+  mix-blend-mode: normal;
+  background-color: unset;
+  grid-template-columns: var(--timeline-title-width, 150px) auto;
+  --dot-offset: calc(
+    var(--timeline-dot-offset-y) + var(--timeline-card-padding-y)
+  );
+
+  .callout-title-inner {
+    width: 100%;
+    text-align: right;
+    color: var(--timeline-title-color);
+    font-size: var(--timeline-title-size);
+    margin-top: 1.2rem /*--- var(--dot-offset) ---*/;
+  }
+  .callout-icon {
+    order: 2;
+    margin-inline: var(--timeline-line-margin);
+    border-left: var(--timeline-line-width) var(--timeline-line-style)
+      var(--timeline-line-color);
+    height: 100%;
+    position: relative;
+
+    &::after {
+      content: "";
+      box-sizing: border-box;
+      background-color: rgb(var(--callout-color));
+      position: absolute;
+      border: var(--timeline-dot-border-size) solid
+        var(--timeline-dot-border-color);
+      border-radius: var(--timeline-dot-radius);
+      width: var(--timeline-dot-size);
+      height: var(--timeline-dot-size);
+      top: var(--dot-offset);
+      left: var(--timeline-dot-offset-x);
+    }
+  }
+  .svg-icon {
+    display: none;
+  }
+
+  .callout-content {
+    order: 3;
+    --p-spacing: 0.5rem;
+    background-color: unset;
+    border-radius: 1rem;
+    margin-bottom: var(--timeline-card-margin);
+    padding: var(--timeline-card-padding-x) var(--timeline-card-padding-y);
+    margin-top: -0.2rem;
+
+    & > h2:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+/* Stacking multiple timelines */
+div:not(:has(> [data-callout-metadata~="timeline"]))
+  + div
+  > [data-callout-metadata~="timeline"] {
+  margin-top: var(--p-spacing);
+}
+div:has(> [data-callout-metadata~="timeline"])
+  + div:not(> [data-callout-metadata~="timeline"]) {
+  margin-bottom: 1rem;
+}
+
+/* ------------------ image ------------------ */
+
+img {
+  border: var(--custom-thin-width) solid var(--custom-gray-color);
+  border-radius: var(--custom-radius);
+  box-shadow: var(--shadow-s);
+}
+
+/*
+additional things
+*/
+
+/* basic adjustments */
+
+img[alt~="f-left"] {
+  float: left;
+  clear: left;
+  margin-right: 1rem;
+}
+
+img[alt~="f-right"] {
+  float: right;
+  clear: right;
+  margin-left: 0.5rem;
+}
+
+img[alt~="f-cent"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* image caption */
+
+.img-cap .image-embed::after,
+.image-embed[src*="#cap"]::after {
+  content: attr(alt);
+  color: var(--code-normal);
+  display: block;
+  text-align: center;
+  font-size: 75%;
+}
+
+.img-cap .image-embed,
+.image-embed[src*="#cap"] img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 0.5rem;
+}
+
+/* image caption callout */
+.callout[data-callout="img-caption"] {
+  --callout-color: none;
+  --callout-icon: none;
+  --callout-padding: 0;
+  border: 0;
+  text-align: center;
+
+  & > .callout-title {
+    justify-content: center;
+  }
+
+  & > .callout-content {
+    text-align: center;
+    font-size: 75%;
+    color: var(--code-normal);
+
+    & > :first-child {
+      margin-top: 0.5rem;
+    }
+    & > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* ------------------ sidebar ------------------ */
+
+.mod-left-split .mod-top .workspace-tab-header-container,
+.workspace-ribbon.mod-left,
+.workspace-ribbon .sidebar-toggle-button {
+  background-color: var(--background-secondary);
+  border-bottom: 0;
+}
+
+.workspace-ribbon.mod-left .sidebar-toggle-button {
+  height: var(--header-height);
+}
+
+.workspace-ribbon {
+  border: none;
+  border-top: none;
+  box-shadow: none;
+}
+
+.workspace-ribbon.is-collapsed .sidebar-toggle-button {
+  background: var(--background-primary) !important;
+}
+
+.workspace-split.mod-left-split .view-content,
+.workspace-split.mod-right-split .view-content {
+  background: var(--background-primary);
+}
+
+/* note bg */
+.mod-left-split .markdown-preview-view,
+.mod-left-split .markdown-source-view {
+  background: var(--background-secondary);
+}
+
+/* ------------------ empty new tab ------------------ */
+
+/*
+original snippet by @sai1494
+source (discord) : https://discord.com/channels/686053708261228577/702656734631821413/1052346864055369808
+*/
+
+.empty-state-container {
+  max-height: unset;
+  opacity: 1 !important;
+}
+
+.empty-state-container::before {
+  content: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='gray' d='M19.355 18.538a68.967 68.959 0 0 0 1.858-2.954a.81.81 0 0 0-.062-.9c-.516-.685-1.504-2.075-2.042-3.362c-.553-1.321-.636-3.375-.64-4.377a1.707 1.707 0 0 0-.358-1.05l-3.198-4.064a3.744 3.744 0 0 1-.076.543c-.106.503-.307 1.004-.536 1.5c-.134.29-.29.6-.446.914l-.31.626c-.516 1.068-.997 2.227-1.132 3.59c-.124 1.26.046 2.73.815 4.481c.128.011.257.025.386.044a6.363 6.363 0 0 1 3.326 1.505c.916.79 1.744 1.922 2.415 3.5zM8.199 22.569c.073.012.146.02.22.02c.78.024 2.095.092 3.16.29c.87.16 2.593.64 4.01 1.055c1.083.316 2.198-.548 2.355-1.664c.114-.814.33-1.735.725-2.58l-.01.005c-.67-1.87-1.522-3.078-2.416-3.849a5.295 5.295 0 0 0-2.778-1.257c-1.54-.216-2.952.19-3.84.45c.532 2.218.368 4.829-1.425 7.531zM5.533 9.938c-.023.1-.056.197-.098.29L2.82 16.059a1.602 1.602 0 0 0 .313 1.772l4.116 4.24c2.103-3.101 1.796-6.02.836-8.3c-.728-1.73-1.832-3.081-2.55-3.831zM9.32 14.01c.615-.183 1.606-.465 2.745-.534c-.683-1.725-.848-3.233-.716-4.577c.154-1.552.7-2.847 1.235-3.95c.113-.235.223-.454.328-.664c.149-.297.288-.577.419-.86c.217-.47.379-.885.46-1.27c.08-.38.08-.72-.014-1.043c-.095-.325-.297-.675-.68-1.06a1.6 1.6 0 0 0-1.475.36l-4.95 4.452a1.602 1.602 0 0 0-.513.952l-.427 2.83c.672.59 2.328 2.316 3.335 4.711c.09.21.175.43.253.653'/%3E%3C/svg%3E");
+  opacity: 30%;
+  transition: opacity 1000ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.empty-state-container:hover::before {
+  content: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 256 332' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3CradialGradient id='logosObsidianIcon0' cx='72.819%25' cy='96.934%25' r='163.793%25' fx='72.819%25' fy='96.934%25' gradientTransform='rotate(-104 11141.322 0)'%3E%3Cstop offset='0%25' stop-color='%23FFF' stop-opacity='.4'/%3E%3Cstop offset='100%25' stop-opacity='.1'/%3E%3C/radialGradient%3E%3CradialGradient id='logosObsidianIcon1' cx='52.917%25' cy='90.632%25' r='190.361%25' fx='52.917%25' fy='90.632%25' gradientTransform='rotate(-82 10746.75 0)'%3E%3Cstop offset='0%25' stop-color='%23FFF' stop-opacity='.6'/%3E%3Cstop offset='100%25' stop-color='%23FFF' stop-opacity='.1'/%3E%3C/radialGradient%3E%3CradialGradient id='logosObsidianIcon2' cx='31.174%25' cy='97.138%25' r='178.714%25' fx='31.174%25' fy='97.138%25' gradientTransform='rotate(-77 10724.606 0)'%3E%3Cstop offset='0%25' stop-color='%23FFF' stop-opacity='.8'/%3E%3Cstop offset='100%25' stop-color='%23FFF' stop-opacity='.4'/%3E%3C/radialGradient%3E%3CradialGradient id='logosObsidianIcon3' cx='71.813%25' cy='99.994%25' r='92.086%25' fx='71.813%25' fy='99.994%25' gradientTransform='translate(0 22251839.658)skewY(-90)'%3E%3Cstop offset='0%25' stop-color='%23FFF' stop-opacity='.3'/%3E%3Cstop offset='100%25' stop-opacity='.3'/%3E%3C/radialGradient%3E%3CradialGradient id='logosObsidianIcon4' cx='117.013%25' cy='34.769%25' r='328.729%25' fx='117.013%25' fy='34.769%25' gradientTransform='rotate(102 -1004.443 0)'%3E%3Cstop offset='0%25' stop-color='%23FFF' stop-opacity='0'/%3E%3Cstop offset='100%25' stop-color='%23FFF' stop-opacity='.2'/%3E%3C/radialGradient%3E%3CradialGradient id='logosObsidianIcon5' cx='-9.431%25' cy='8.712%25' r='153.492%25' fx='-9.431%25' fy='8.712%25' gradientTransform='rotate(45 1674.397 0)'%3E%3Cstop offset='0%25' stop-color='%23FFF' stop-opacity='.2'/%3E%3Cstop offset='100%25' stop-color='%23FFF' stop-opacity='.4'/%3E%3C/radialGradient%3E%3CradialGradient id='logosObsidianIcon6' cx='103.902%25' cy='-22.172%25' r='394.771%25' fx='103.902%25' fy='-22.172%25' gradientTransform='rotate(80 3757.522 0)'%3E%3Cstop offset='0%25' stop-color='%23FFF' stop-opacity='.1'/%3E%3Cstop offset='100%25' stop-color='%23FFF' stop-opacity='.3'/%3E%3C/radialGradient%3E%3CradialGradient id='logosObsidianIcon7' cx='99.348%25' cy='89.193%25' r='203.824%25' fx='99.348%25' fy='89.193%25' gradientTransform='translate(0 -38783246.548)skewY(-90)'%3E%3Cstop offset='0%25' stop-color='%23FFF' stop-opacity='.2'/%3E%3Cstop offset='50%25' stop-color='%23FFF' stop-opacity='.2'/%3E%3Cstop offset='100%25' stop-color='%23FFF' stop-opacity='.3'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath fill-opacity='.3' d='M209.056 308.305c-2.043 14.93-16.738 26.638-31.432 22.552c-20.823-5.658-44.946-14.616-66.634-16.266l-33.317-2.515a22.002 22.002 0 0 1-14.144-6.522L6.167 246.778a21.766 21.766 0 0 1-4.244-24.124s35.36-77.478 36.775-81.485c1.257-4.008 6.13-39.211 8.958-58.07a22.002 22.002 0 0 1 7.072-12.965L122.462 9.47a22.002 22.002 0 0 1 31.903 2.672l57.048 71.978a23.18 23.18 0 0 1 4.872 14.38c0 13.594 1.179 41.646 8.8 59.72a236.756 236.756 0 0 0 27.974 45.732a11.001 11.001 0 0 1 .786 12.258c-4.95 8.408-14.851 24.595-28.76 45.26a111.738 111.738 0 0 0-16.108 46.834z'/%3E%3Cpath fill='%236C31E3' d='M209.606 305.79c-2.043 15.009-16.737 26.717-31.432 22.71c-20.744-5.737-44.79-14.695-66.555-16.345L78.38 309.64a21.923 21.923 0 0 1-14.144-6.6L6.874 244.106a21.923 21.923 0 0 1-4.243-24.36s35.438-77.792 36.774-81.878c1.336-4.007 6.13-39.289 8.958-58.305a22.002 22.002 0 0 1 7.072-13.044L123.17 5.621a22.002 22.002 0 0 1 31.902 2.75l56.97 72.292a23.338 23.338 0 0 1 4.871 14.38c0 13.673 1.18 41.804 8.723 59.955a238.092 238.092 0 0 0 27.974 45.969a11.001 11.001 0 0 1 .864 12.336c-5.03 8.487-14.851 24.674-28.838 45.497a112.603 112.603 0 0 0-16.03 46.99'/%3E%3Cpath fill='url(%23logosObsidianIcon0)' d='M70.365 307.44c26.638-53.983 25.93-92.722 14.537-120.225c-10.372-25.459-29.781-41.489-45.025-51.468a19.233 19.233 0 0 1-1.415 4.243L2.631 219.747a21.923 21.923 0 0 0 4.321 24.36l57.284 58.933a23.762 23.762 0 0 0 6.129 4.4'/%3E%3Cpath fill='url(%23logosObsidianIcon1)' d='M142.814 197.902a86.025 86.025 0 0 1 21.06 4.793c21.844 8.172 41.724 26.56 58.147 61.999c1.179-2.043 2.357-4.008 3.615-5.894a960.226 960.226 0 0 0 28.838-45.497a11.001 11.001 0 0 0-.786-12.336a238.092 238.092 0 0 1-28.052-45.969c-7.544-18.073-8.644-46.282-8.723-59.955c0-5.186-1.65-10.294-4.871-14.38l-56.97-72.292l-.943-1.178c4.165 13.75 3.93 24.752 1.336 34.731c-2.357 9.272-6.757 17.68-11.394 26.56c-1.571 2.986-3.143 6.05-4.636 9.193a110.01 110.01 0 0 0-12.415 45.576c-.786 19.016 3.064 42.825 15.716 74.65z'/%3E%3Cpath fill='url(%23logosObsidianIcon2)' d='M142.736 197.902c-12.652-31.824-16.502-55.633-15.716-74.65c.786-18.858 6.286-33.002 12.415-45.575l4.715-9.193c4.558-8.88 8.88-17.288 11.315-26.56a61.684 61.684 0 0 0-1.336-34.731c-8.136-8.94-21.96-9.642-30.96-1.572L55.436 66.519a22.002 22.002 0 0 0-7.072 13.044l-8.25 54.69c0 .55-.158 1.022-.236 1.572c15.244 9.901 34.574 25.931 45.025 51.312c2.043 5.029 3.772 10.294 5.029 16.03a157.157 157.157 0 0 1 52.805-5.343z'/%3E%3Cpath fill='url(%23logosObsidianIcon3)' d='M178.253 328.5c14.616 4.007 29.31-7.701 31.353-22.789a120.225 120.225 0 0 1 12.494-41.017c-16.502-35.44-36.382-53.827-58.148-61.999c-23.18-8.643-48.404-5.736-74.021.472c5.736 26.01 2.357 60.034-19.487 104.273c2.436 1.257 5.186 1.965 7.936 2.2l34.496 2.593c18.701 1.336 46.597 11.001 65.377 16.266'/%3E%3Cpath fill='url(%23logosObsidianIcon4)' d='M127.177 122.074c-.864 18.859 1.493 40.39 14.144 72.135l-3.929-.393c-11.394-33.081-13.908-50.054-13.044-69.149c.786-19.094 6.994-33.789 13.123-46.361c1.571-3.143 5.186-9.037 6.758-12.023c4.557-8.879 7.622-13.515 10.215-21.609c3.772-11.315 2.986-16.658 2.514-22.001c2.908 19.251-8.172 35.988-16.501 53.04a113.939 113.939 0 0 0-13.358 46.361z'/%3E%3Cpath fill='url(%23logosObsidianIcon5)' d='M88.674 188.551c1.571 3.458 2.907 6.287 3.85 10.608l-3.379.786c-1.336-5.029-2.357-8.643-4.322-12.965c-11.472-26.953-29.86-40.861-44.79-51.076c18.074 9.744 36.697 25.066 48.64 52.647'/%3E%3Cpath fill='url(%23logosObsidianIcon6)' d='M92.681 202.617c6.286 29.467-.786 66.948-21.609 103.409c17.445-36.146 25.931-70.8 18.859-102.938l2.75-.55z'/%3E%3Cpath fill='url(%23logosObsidianIcon7)' d='M164.659 199.867c34.181 12.808 47.383 40.86 57.205 64.355c-12.18-24.516-29.074-51.626-58.462-61.684c-22.317-7.7-41.175-6.758-73.471.55l-.707-3.143c34.26-7.858 52.176-8.8 75.435 0z'/%3E%3C/svg%3E");
+  opacity: 100%;
+  transition: opacity 1000ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.empty-state-title {
+  display: none;
+}
+
+/* ------------------ command palette ------------------ */
+
+.suggestion-highlight {
+  color: var(--custom-accent);
+}
+
+.suggestion-item.is-selected .suggestion-highlight {
+  color: black; /* white */
+  font-weight: bold;
+}
+
+.suggestion-item.is-selected {
+  background-color: var(--custom-accent);
+  color: black;
+  border-radius: calc(var(--custom-radius) * 0.5);
+}
+
+.suggestion-item.mod-complex .suggestion-hotkey {
+  font-family: var(--font-monospace);
+  background: var(--code-background);
+  color: var(--custom-accent);
+
+  &:not(.is-selected) {
+    outline: var(--custom-thin-width) solid var(--custom-gray-color);
+  }
+}
+
+.suggestion-item.mod-complex .suggestion-flair {
+  color: var(--text-accent);
+}
+
+.suggestion-item.is-selected .suggestion-note,
+.suggestion-item.is-selected .suggestion-flair {
+  color: black;
+}
+
+.prompt-instruction-command {
+  color: var(--custom-accent);
+}
+
+/* ------------------ settings and other things ------------------ */
+
+.modal,
+.float-search-modal,
+.popover,
+.prompt,
+.suggestion-container {
+  outline: var(--custom-thin-width) solid var(--custom-accent);
+  border-radius: var(--custom-radius);
+  border: none;
+}
+
+.vertical-tab-header-group-title {
+  color: var(--color-accent);
+}
+
+/* reference: https://github.com/Akifyss/obsidian-border/blob/main/theme.css */
+
+.modal.mod-canvas-help,
+.suggestion-container,
+.popover,
+.prompt,
+.menu,
+.suggestion-container.mod-search-suggestion {
+  background-color: var(--workspace-background-translucent);
+  backdrop-filter: blur(3px) saturate(190%) contrast(50%) brightness(130%);
+}
+
+.suggestion-container.mod-search-suggestion .suggestion {
+  background-color: transparent;
+}
+.prompt-instructions {
+  border-top: 1px solid var(--divider-color);
+}
+input.prompt-input {
+  background-color: transparent !important;
+}
+
+/* ------------------ plugins ------------------ */
+
+/* floating search plugin */
+.modal:is(.float-search-modal) {
+  background: unset;
+  backdrop-filter: blur(10px);
+}
+
+:is(.float-search-modal) .search-result-file-matches {
+  background: color-mix(in oklab, var(--background-primary), transparent);
+  backdrop-filter: blur(10px);
+}
+
+/* kanban plugin */
+
+.kanban-plugin__lane {
+  background: unset;
+  border: none;
+}
+
+.kanban-plugin__lane-header-wrapper {
+  border: none;
+}
+
+.kanban-plugin__item-title-wrapper,
+.kanban-plugin__grow-wrap > textarea {
+  background: var(--code-background);
+
+  &:hover {
+    background: var(--background-secondary);
+  }
+}
+
+.kanban-plugin__item-title-wrapper:has(.kanban-plugin__grow-wrap > textarea) {
+  background: var(--background-primary);
+}
+
+.kanban-plugin__item-button-wrapper {
+  border: none;
+  margin-top: -0.5rem;
+}
+
+button.kanban-plugin__new-item-button {
+  background: unset;
+  box-shadow: none;
+}
+
+.kanban-plugin__item-prefix-button-wrapper input[type="checkbox"] {
+  filter: none;
+}
+
+.modal.kanban-plugin__board-settings-modal {
+  background-color: var(--workspace-background-translucent);
+  backdrop-filter: blur(3px) saturate(190%) contrast(50%) brightness(130%);
+}
+
+/* omnisearch plugin */
+
+.is-selected .omnisearch-result__body {
+  color: var(--text-normal);
+}
+
+.is-selected .omnisearch-result__folder-path {
+  color: var(--text-normal);
+}
+
+.is-selected .omnisearch-result__extension,
+.is-selected .omnisearch-result__counter {
+  color: var(--text-normal);
+}
+
+/* calendar plugin - [credit: sailKite] */
+
+.container#calendar-container {
+  --custom-weight: 550;
+  font-style: italic;
+  font-weight: var(--custom-weight);
+
+  & .month {
+    font-weight: var(--custom-weight);
+  }
+  & .year {
+    font-weight: var(--custom-weight);
+  }
+  & .title {
+    border-bottom: none;
+    padding: 0;
+  }
+  & .reset-button {
+    padding: 0;
+    padding-top: 0.1rem;
+    color: var(--custom-accent);
+  }
+}
+
+/* ------------------ headers ------------------ */
+
+.inline-title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  border-bottom: var(--custom-thin-width) solid var(--custom-gray-color);
+  padding-bottom: var(--size-4-3);
+  margin-bottom: var(--size-4-3);
+}
+
+body {
+  --inline-title-size: 3em;
+}
+
+/* ------------------ flashing ------------------ */
+
+.is-flashing {
+  outline: 1px solid var(--custom-accent);
+  outline-offset: 1rem;
+  transition: 200ms ease-in-out;
+  background-color: hsla(var(--color-accent-hsl), 0.1) !important;
+}
+
+body {
+  --sidebar-markdown-font-size: 0.85rem;
+}
+
+/* ------------------ scrollbar ------------------ */
+
+body:not(.native-scrollbars) ::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+/*
+additional things
+*/
+
+body {
+  --scrollbar-active-thumb-bg: var(--custom-accent);
+}
+
+/* inside kanban */
+.kanban-plugin__lane:not(.native-scrollbars) ::-webkit-scrollbar {
+  width: 0.8rem !important;
+}
+
+/* ------------------ embed ------------------ */
+
+body {
+  --embed-border-left: 1px solid var(--custom-accent);
+  --embed-border-right: 1px solid var(--custom-accent);
+  --embed-border-top: 1px solid var(--custom-accent);
+  --embed-border-bottom: 1px solid var(--custom-accent);
+  --embed-padding: 0 var(--size-4-2) 0 var(--size-4-6);
+}
+
+.markdown-embed {
+  border-radius: var(--custom-radius);
+}
+
+/* ------------------ checkbox ------------------ */
+
+body {
+  --checkbox-radius: var(--custom-radius);
+  --checkbox-marker-color: white;
+  --checkbox-border-color: var(--custom-accent);
+  --checkbox-border-color-hover: var(--text-muted);
+
+  --checklist-done-decoration: unset;
+  --checklist-done-color: gray;
+}
+
+input[type="checkbox"] {
+  background: hsla(var(--interactive-accent-hsl), 0.1);
+}
+
+/* ------------------ tooltip ------------------ */
+
+.tooltip {
+  color: var(--text-on-accent);
+  background: var(--color-accent);
+  box-shadow: var(--shadow-s);
+  border: 1px solid var(--background-modifier-border);
+}
+
+.tooltip .tooltip-arrow,
+.tooltip.mod-right .tooltip-arrow,
+.tooltip.mod-left .tooltip-arrow,
+.tooltip.mod-top .tooltip-arrow {
+  border: none;
+}
+
+/* ------------------ tags ------------------ */
+
+a.tag {
+  border-radius: calc(var(--custom-radius) * 0.7);
+  outline: 1px solid var(--custom-accent);
+  padding: 1px 6px 1px 5px;
+}
+a.tag:hover {
+  box-shadow: 0 0 0 5px hsl(var(--color-accent-hsl), 0.1);
+}
+
+.cm-line .cm-hashtag-begin {
+  border-left: 1px solid var(--custom-accent);
+  padding-left: 5px;
+  border-top-left-radius: calc(var(--custom-radius) * 0.7);
+  border-bottom-left-radius: calc(var(--custom-radius) * 0.7);
+}
+.cm-line .cm-hashtag-end {
+  border-right: 1px solid var(--custom-accent);
+  padding-right: 6px;
+  border-top-right-radius: calc(var(--custom-radius) * 0.7);
+  border-bottom-right-radius: calc(var(--custom-radius) * 0.7);
+}
+
+.cm-line .cm-hashtag-begin,
+.cm-line .cm-hashtag-end,
+.cm-hashtag.cm-meta {
+  border-top: 1px solid var(--custom-accent);
+  border-bottom: 1px solid var(--custom-accent);
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+/* ------------------ highlight ------------------ */
+/* credit: sailKite */
+
+body {
+  --text-highlight-bg: rgba(var(--text-highlight-bg-rgb), 0.5);
+}
+
+body {
+  --mark-radius: calc(var(--custom-radius) * 0.5);
+}
+.markdown-rendered mark,
+.cm-highlight:not(.cm-formatting-highlight, .cm-formatting-highlight + *) {
+  padding-inline: var(--mark-radius);
+  border-radius: var(--mark-radius);
+}
+.cm-formatting-highlight:has(+ .cm-highlight:not(.cm-formatting-highlight)) {
+  padding-inline-start: var(--mark-radius);
+  border-start-start-radius: var(--mark-radius);
+  border-end-start-radius: var(--mark-radius);
+}
+.cm-highlight:not(.cm-formatting-highlight) + .cm-formatting-highlight {
+  padding-inline-end: var(--mark-radius);
+  border-start-end-radius: var(--mark-radius);
+  border-end-end-radius: var(--mark-radius);
+}
+
+/* ------------------ mermaid ------------------ */
+
+.mermaid {
+  --background-modifier-border: var(--table-border-color);
+  --background-secondary-alt: var(--code-background);
+  display: flex;
+  justify-content: center;
+}
+
+/* ------------------ mathjax ------------------ */
+
+div > span > mjx-container > mjx-math {
+  font-size: 100%;
+}
+
+span.math {
+  font-size: 140%;
+}
+
+.math-block {
+  font-size: 125%;
+}
+
+/* ------------------ active line and number ------------------ */
+
+.markdown-source-view .cm-active.cm-line {
+  background-color: hsla(var(--interactive-accent-hsl), 0.1) !important;
+}
+
+.cm-gutterElement.cm-active {
+  color: var(--custom-accent);
+}
+
+/* little fix for numbers. Thanks to kepano's minimal theme */
+
+body :not(.canvas-node) .markdown-source-view.mod-cm6 .cm-gutters {
+  position: absolute;
+  margin-inline-end: 0;
+}
+
+/* ------------------ horizontal rule ------------------ */
+
+hr,
+.markdown-rendered hr {
+  border-top: var(--hr-thickness) dashed var(--custom-gray-color);
+}
+
+/* ------------------ accent coloured icons ------------------ */
+
+.nav-file-icon .svg-icon,
+.menu-item-icon .svg-icon,
+.status-bar-item .svg-icon {
+  color: hsla(var(--interactive-accent-hsl));
+}
+
+/* ------------------ toggle ------------------ */
+
+body {
+  --toggle-radius: var(--custom-radius);
+  --toggle-thumb-radius: calc(var(--custom-radius) * 0.8);
+}
+
+/* ------------------ nav ------------------ */
+
+.nav-buttons-container {
+  justify-content: start;
+}
+
+/* ------------------ prop focus ------------------ */
+
+.metadata-property:focus-within {
+  outline: 1px solid var(--color-accent);
+}
+
+/* ------------------ view header ------------------ */
+
+.view-header-title-container {
+  justify-content: start;
+}
+
+/* ------------------ status ------------------ */
+
+.status-bar {
+  background: unset;
+  border: none;
+}
+
+/* ------------------ community p & t ------------------ */
+
+.community-item .suggestion-highlight {
+  border: var(--table-border-width) solid var(--table-border-color);
+  border-radius: calc(var(--my-radius) * 0.5);
+  background: var(--code-background);
+}
+
+/* ------------------ notice ------------------ */
+
+.notice {
+  outline: var(--table-border-width) solid var(--table-border-color);
+}
+
+/* ------------------ close ------------------ */
+
+body {
+  --search-clear-button-color: tomato;
+}
+
+/* ----------------------------------------------------------- */
+/* ------- style things ------- */
+/* ----------------------------------------------------------- */
+
+/* ------------------ vault title ------------------ */
+
+body:not(.css-settings-manager.vaultStyle) {
+  .nav-folder.mod-root > .nav-folder-title {
+    position: sticky;
+    top: 0rem;
+    font-size: 1rem;
+    padding-left: 0.22rem;
+    color: var(--nav-item-color);
+    text-transform: uppercase;
+    border-bottom: var(--table-border-width) solid var(--table-border-color);
+    background-color: color-mix(
+      in oklab,
+      var(--background-secondary),
+      transparent
+    );
+    backdrop-filter: blur(2px);
+    z-index: 1;
+  }
+
+  .nav-folder.mod-root > .nav-folder-title::before {
+    content: "";
+    display: inline-block;
+    font-size: 1.2rem;
+    /* these bits are for sizing the box */
+    width: 1em;
+    aspect-ratio: 1;
+
+    -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -3 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-open"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></svg>');
+    background-color: var(--custom-accent);
+    -webkit-mask-repeat: no-repeat;
+    padding-right: 0.2rem;
+    opacity: 0.9;
+  }
+}
+
+/* ------------------ style: link icons ------------------ */
+
+/* external link */
+body:not(.css-settings-manager.linkIcon) .external-link {
+  background-image: none;
+  padding-right: 0;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    transition: 100ms;
+
+    width: 1em;
+    aspect-ratio: 1;
+    background-color: currentColor;
+    -webkit-mask-image: var(--elink-icon);
+    -webkit-mask-repeat: no-repeat;
+    margin-left: 2px;
+  }
+
+  &:hover {
+    text-decoration: 2px underline var(--text-accent);
+    color: var(--text-normal);
+  }
+}
+
+/* links - general */
+body:not(.css-settings-manager.linkIcon) .markdown-rendered .internal-link,
+body:not(.css-settings-manager.linkIcon)
+  .markdown-rendered
+  .internal-link.is-unresolved {
+  text-decoration-line: none;
+
+  &:hover {
+    text-decoration: underline var(--text-accent);
+    color: var(--text-normal);
+  }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    transition: 100ms;
+    font-size: inherit;
+    width: 1em;
+    aspect-ratio: 1;
+    background-color: currentColor;
+    -webkit-mask-repeat: no-repeat;
+    margin-right: 0.1rem;
+  }
+}
+
+.markdown-rendered .internal-link::before {
+  -webkit-mask-image: var(--urlink-icon);
+}
+
+.markdown-rendered .internal-link:not(.is-unresolved)::before {
+  -webkit-mask-image: var(--rlink-icon);
+}
+
+body {
+  --rlink-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-file-text'%3E%3Cpath d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/%3E%3Cpath d='M14 2v4a2 2 0 0 0 2 2h4'/%3E%3Cpath d='M10 9H8'/%3E%3Cpath d='M16 13H8'/%3E%3Cpath d='M16 17H8'/%3E%3C/svg%3E");
+  --urlink-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-file'%3E%3Cpath d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/%3E%3Cpath d='M14 2v4a2 2 0 0 0 2 2h4'/%3E%3C/svg%3E");
+  --elink-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' stroke='currentColor' fill='currentColor' viewBox='0 0 24 24'%3E%3Cpath d='M18.3643 15.5353L16.95 14.1211L18.3643 12.7069C20.3169 10.7543 20.3169 7.58847 18.3643 5.63585C16.4116 3.68323 13.2458 3.68323 11.2932 5.63585L9.87898 7.05007L8.46477 5.63585L9.87898 4.22164C12.6127 1.48797 17.0448 1.48797 19.7785 4.22164C22.5121 6.95531 22.5121 11.3875 19.7785 14.1211L18.3643 15.5353ZM15.5358 18.3638L14.1216 19.778C11.388 22.5117 6.9558 22.5117 4.22213 19.778C1.48846 17.0443 1.48846 12.6122 4.22213 9.87849L5.63634 8.46428L7.05055 9.87849L5.63634 11.2927C3.68372 13.2453 3.68372 16.4112 5.63634 18.3638C7.58896 20.3164 10.7548 20.3164 12.7074 18.3638L14.1216 16.9496L15.5358 18.3638ZM14.8287 7.75717L16.2429 9.17139L9.17187 16.2425L7.75766 14.8282L14.8287 7.75717Z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* ------------------ style: custom checkboxes ------------------ */
+/* reference: https://forum.obsidian.md/t/alternative-checkboxes-icon-bullets-copy-and-paste/35962/15 */
+body:not(.css-settings-manager.customTask) {
+  /* ? --- cancelled ---*/
+  input[data-task="-"]:checked,
+  li[data-task="-"] > input:checked,
+  li[data-task="-"] > p > input:checked {
+    --checkbox-color: transparent;
+    --checkbox-color-hover: transparent;
+    border-width: 0;
+  }
+
+  input[data-task="-"]:checked::after,
+  li[data-task="-"] > input:checked::after,
+  li[data-task="-"] > p > input:checked::after {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEwMDAgMTAwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMTAwMCA1MDFxMCAxMzYtNjcgMjUxVDc1MSA5MzR0LTI1MSA2N3QtMjUxLTY3VDY3IDc1MlQwIDUwMXQ2Ny0yNTFUMjQ5IDY4VDUwMCAxdDI1MSA2N3QxODIgMTgydDY3IDI1MU02NjEgNzMzbDcxLTcxbC0xNjEtMTYxbDE2MS0xNjFsLTcxLTcxbC0xNjEgMTYxbC0xNjEtMTYxbC03MSA3MWwxNjEgMTYxbC0xNjEgMTYxbDcxIDcxbDE2MS0xNjF6Ii8+PC9zdmc+");
+    -webkit-mask-size: contain;
+    background-color: var(--color-red);
+    left: 0;
+  }
+
+  /* / in progress */
+  input[data-task="/"]:checked,
+  li[data-task="/"] > input:checked,
+  li[data-task="/"] > p > input:checked {
+    background-image: none;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+  }
+  input[data-task="/"]:checked:after,
+  li[data-task="/"] > input:checked:after,
+  li[data-task="/"] > p > input:checked:after {
+    top: 0;
+    left: 0;
+    content: " ";
+    display: block;
+    position: absolute;
+    background-color: var(--color-accent);
+    width: calc(50% - 0.5px);
+    height: 100%;
+    -webkit-mask-image: none;
+  }
+
+  /* ? --- question ---*/
+  input[data-task="?"]:checked,
+  li[data-task="?"] > input:checked,
+  li[data-task="?"] > p > input:checked {
+    --checkbox-color: transparent;
+    --checkbox-color-hover: transparent;
+    border-width: 0;
+  }
+
+  input[data-task="?"]:checked::after,
+  li[data-task="?"] > input:checked::after,
+  li[data-task="?"] > p > input:checked::after {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMTAgMjBhMTAgMTAgMCAxIDEgMC0yMGExMCAxMCAwIDAgMSAwIDIwbTItMTNjMCAuMjgtLjIxLjgtLjQyIDFMMTAgOS41OGMtLjU3LjU4LTEgMS42LTEgMi40MnYxaDJ2LTFjMC0uMjkuMjEtLjguNDItMUwxMyA5LjQyYy41Ny0uNTggMS0xLjYgMS0yLjQyYTQgNCAwIDEgMC04IDBoMmEyIDIgMCAxIDEgNCAwbS0zIDh2Mmgydi0yeiIvPjwvc3ZnPg==");
+    -webkit-mask-size: contain;
+    background-color: var(--color-orange);
+    left: 0;
+  }
+
+  /* ? --- star ---*/
+  input[data-task="*"]:checked,
+  li[data-task="*"] > input:checked,
+  li[data-task="*"] > p > input:checked {
+    --checkbox-color: transparent;
+    --checkbox-color-hover: transparent;
+    border-width: 0;
+  }
+
+  input[data-task="*"]:checked::after,
+  li[data-task="*"] > input:checked::after,
+  li[data-task="*"] > p > input:checked::after {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3C!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z'/%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    background-color: var(--color-cyan);
+    left: 0;
+  }
+
+  /* ? --- location ---*/
+  input[data-task="l"]:checked,
+  li[data-task="l"] > input:checked,
+  li[data-task="l"] > p > input:checked {
+    --checkbox-color: transparent;
+    --checkbox-color-hover: transparent;
+    border-width: 0;
+  }
+
+  input[data-task="l"]:checked::after,
+  li[data-task="l"] > input:checked::after,
+  li[data-task="l"] > p > input:checked::after {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3C!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z'/%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    background-color: var(--color-blue);
+    left: 0;
+  }
+
+  /* ? --- idea ---*/
+  input[data-task="I"]:checked,
+  li[data-task="I"] > input:checked,
+  li[data-task="I"] > p > input:checked {
+    --checkbox-color: transparent;
+    --checkbox-color-hover: transparent;
+    border-width: 0;
+  }
+
+  input[data-task="I"]:checked::after,
+  li[data-task="I"] > input:checked::after,
+  li[data-task="I"] > p > input:checked::after {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3C!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.4 49.2 86.2H272zM192 512c44.2 0 80-35.8 80-80V416H112v16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z'/%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    background-color: var(--color-yellow);
+    left: 0;
+  }
+
+  /* p pro */
+  input[data-task="p"]:checked,
+  li[data-task="p"] > input:checked,
+  li[data-task="p"] > p > input:checked {
+    --checkbox-color: transparent;
+    --checkbox-color-hover: transparent;
+    border-width: 0;
+  }
+
+  input[data-task="p"]:checked::after,
+  li[data-task="p"] > input:checked::after,
+  li[data-task="p"] > p > input:checked::after {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 25.3-19.5 46-44.3 47.9c7.7 8.5 12.3 19.8 12.3 32.1c0 23.4-16.8 42.9-38.9 47.1c4.4 7.2 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z'/%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    background-color: var(--color-green);
+    left: 0;
+  }
+
+  /* c con */
+  input[data-task="c"]:checked,
+  li[data-task="c"] > input:checked,
+  li[data-task="c"] > p > input:checked {
+    --checkbox-color: transparent;
+    --checkbox-color-hover: transparent;
+    border-width: 0;
+  }
+
+  input[data-task="c"]:checked::after,
+  li[data-task="c"] > input:checked::after,
+  li[data-task="c"] > p > input:checked::after {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M313.4 479.1c26-5.2 42.9-30.5 37.7-56.5l-2.3-11.4c-5.3-26.7-15.1-52.1-28.8-75.2H464c26.5 0 48-21.5 48-48c0-25.3-19.5-46-44.3-47.9c7.7-8.5 12.3-19.8 12.3-32.1c0-23.4-16.8-42.9-38.9-47.1c4.4-7.3 6.9-15.8 6.9-24.9c0-21.3-13.9-39.4-33.1-45.6c.7-3.3 1.1-6.8 1.1-10.4c0-26.5-21.5-48-48-48H294.5c-19 0-37.5 5.6-53.3 16.1L202.7 73.8C176 91.6 160 121.6 160 153.7V192v48 24.9c0 29.2 13.3 56.7 36 75l7.4 5.9c26.5 21.2 44.6 51 51.2 84.2l2.3 11.4c5.2 26 30.5 42.9 56.5 37.7zM32 320H96c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32H32C14.3 32 0 46.3 0 64V288c0 17.7 14.3 32 32 32z'/%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    background-color: var(--color-red);
+    left: 0;
+  }
+
+  /* b bookmark */
+  input[data-task="b"]:checked,
+  li[data-task="b"] > input:checked,
+  li[data-task="b"] > p > input:checked {
+    --checkbox-color: transparent;
+    --checkbox-color-hover: transparent;
+    border-width: 0;
+  }
+
+  input[data-task="b"]:checked::after,
+  li[data-task="b"] > input:checked::after,
+  li[data-task="b"] > p > input:checked::after {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3C!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z'/%3E%3C/svg%3E");
+    -webkit-mask-size: 0.7rem;
+    background-color: var(--color-pink);
+    left: 0;
+  }
+
+  /* ? --- quote ---*/
+  input[data-task="q"]:checked,
+  li[data-task="q"] > input:checked,
+  li[data-task="q"] > p > input:checked {
+    --checkbox-color: transparent;
+    --checkbox-color-hover: transparent;
+    border-width: 0;
+  }
+
+  input[data-task="q"]:checked::after,
+  li[data-task="q"] > input:checked::after,
+  li[data-task="q"] > p > input:checked::after {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z'/%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    background-color: var(--color-base-50);
+    left: 0;
+  }
+
+  /* P pin */
+  input[data-task="P"]:checked,
+  li[data-task="P"] > input:checked,
+  li[data-task="P"] > p > input:checked {
+    --checkbox-color: transparent;
+    --checkbox-color-hover: transparent;
+    border-width: 0;
+  }
+
+  input[data-task="P"]:checked::after,
+  li[data-task="P"] > input:checked::after,
+  li[data-task="P"] > p > input:checked::after {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3C!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M32 32C32 14.3 46.3 0 64 0H320c17.7 0 32 14.3 32 32s-14.3 32-32 32H290.5l11.4 148.2c36.7 19.9 65.7 53.2 79.5 94.7l1 3c3.3 9.8 1.6 20.5-4.4 28.8s-15.7 13.3-26 13.3H32c-10.3 0-19.9-4.9-26-13.3s-7.7-19.1-4.4-28.8l1-3c13.8-41.5 42.8-74.8 79.5-94.7L93.5 64H64C46.3 64 32 49.7 32 32zM160 384h64v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V384z'/%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    background-color: var(--color-red);
+    left: 0;
+  }
+
+  /* ? --- search ---*/
+  input[data-task="s"]:checked,
+  li[data-task="s"] > input:checked,
+  li[data-task="s"] > p > input:checked {
+    --checkbox-color: transparent;
+    --checkbox-color-hover: transparent;
+    border-width: 0;
+  }
+
+  input[data-task="s"]:checked::after,
+  li[data-task="s"] > input:checked::after,
+  li[data-task="s"] > p > input:checked::after {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA0OCA0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iNCI+PHBhdGggZD0iTTIxIDM4YzkuMzg5IDAgMTctNy42MTEgMTctMTdTMzAuMzg5IDQgMjEgNFM0IDExLjYxMSA0IDIxczcuNjExIDE3IDE3IDE3WiIvPjxwYXRoIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZD0iTTI2LjY1NyAxNC4zNDNBNy45NzUgNy45NzUgMCAwIDAgMjEgMTJhNy45NzUgNy45NzUgMCAwIDAtNS42NTcgMi4zNDNtMTcuODc5IDE4Ljg3OWw4LjQ4NSA4LjQ4NSIvPjwvZz48L3N2Zz4=");
+    -webkit-mask-size: 1.1rem;
+    background-color: var(--color-purple);
+    left: 0;
+  }
+
+  /* C --- comment ---*/
+  input[data-task="C"]:checked,
+  li[data-task="C"] > input:checked,
+  li[data-task="C"] > p > input:checked {
+    --checkbox-color: transparent;
+    --checkbox-color-hover: transparent;
+    border-width: 0;
+  }
+
+  input[data-task="C"]:checked::after,
+  li[data-task="C"] > input:checked::after,
+  li[data-task="C"] > p > input:checked::after {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMjAgMkg0Yy0xLjEwMyAwLTIgLjg5NC0yIDEuOTkydjEyLjAxNkMyIDE3LjEwNiAyLjg5NyAxOCA0IDE4aDN2NGw2LjM1MS00SDIwYzEuMTAzIDAgMi0uODk0IDItMS45OTJWMy45OTJBMS45OTggMS45OTggMCAwIDAgMjAgMm0tNiAxMUg3di0yaDd6bTMtNEg3VjdoMTB6Ii8+PC9zdmc+");
+    -webkit-mask-size: 1.2rem;
+    background-color: var(--color-green);
+    left: 0;
+  }
+}
+
+/* ------------------ style: folder icon ------------------ */
+body:not(.css-settings-manager.folderIcon) {
+  [data-type="file-explorer"] {
+    & .nav-folder-collapse-indicator {
+      -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-open"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></svg>');
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: 100%;
+      color: var(--color-accent);
+      background-color: currentColor;
+
+      &.is-collapsed {
+        color: var(--nav-collapse-icon-color);
+        -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>');
+      }
+    }
+  }
+  & .nav-folder-collapse-indicator.collapse-icon svg.svg-icon {
+    display: none;
+  }
+}
+
+/* ------------------ edit mode indicator ------------------ */
+/* 
+original snippet by @frankmeeuwsen
+source: https://discord.com/channels/686053708261228577/819489506125283328/934050139360874526
+*/
+body:not(.css-settings-manager.editMode)
+  .workspace-leaf-content[data-mode="source"]
+  > .view-content
+  > .markdown-source-view::before {
+  content: "YOU ARE IN EDIT MODE";
+  width: 100%;
+  background-color: hsla(var(--interactive-accent-hsl), 0.25);
+  color: var(--text-normal);
+  font-weight: 500;
+  text-align: center;
+  z-index: 10;
+  position: fixed;
+}
+
+/* ------------------ outline numbering ------------------ */
+/* [credit: sailKite] */
+.outline-no:not(.css-settings-manager.outlineNumber)
+  .workspace-leaf-content[data-type="outline"] {
+  counter-reset: rootLayout;
+}
+.outline-no:not(.css-settings-manager.outlineNumber)
+  .workspace-leaf-content[data-type="outline"]
+  .tree-item
+  .tree-item-self
+  .tree-item-inner::before {
+  content: counters(rootLayout, ".") ". ";
+  counter-increment: rootLayout;
+}
+.outline-no:not(.css-settings-manager.outlineNumber)
+  .workspace-leaf-content[data-type="outline"]
+  .tree-item-children {
+  counter-reset: internalLayout;
+}
+.outline-no:not(.css-settings-manager.outlineNumber)
+  .workspace-leaf-content[data-type="outline"]
+  .tree-item-children
+  .tree-item
+  .tree-item-self
+  .tree-item-inner::before {
+  content: counters(rootLayout, ".") "." counters(internalLayout, ".") ". " !important;
+  counter-increment: internalLayout;
+}
+
+/*------------------------------------------------------------*/
+/*------------------------------------------------------------*/
+
+/* ------------------ style: accent coloured icons ------------------ */
+.accentedIcons {
+  --icon-color: var(--text-accent);
+  --icon-color-focused: var(--text-accent) /* var(--text-normal) */;
+
+  --icon-color-hover: color-mix(
+    in oklab,
+    var(--text-accent),
+    var(--text-faint)
+  );
+}
+
+/* ------------------ style: interchange colours ------------------ */
+.interchange {
+  --background-primary: var(--color-base-20);
+  --background-secondary: var(--color-base-00);
+}
+
+/* ------------------ style: hide vault title ------------------ */
+.hide-v-title .nav-folder.mod-root > .nav-folder-title {
+  display: none;
+}
+
+/* ------------------ style: custom colour scheme ------------------ */
+.customColorScheme:has(> .app-container) {
+  background: var(--cColor);
+  opacity: 0.9;
+}
+
+.accentColorScheme:has(> .app-container):not(
+    .css-settings-manager.customColorScheme
+  ) {
+  background: var(--text-accent);
+  background-size: cover;
+  opacity: 0.9;
+}
+
+.accentColorScheme:not(.css-settings-manager.customColorScheme)
+  :is(.theme-dark .markdown-rendered, .theme-dark) {
+  color: color-mix(in oklab, var(--text-accent), var(--text-normal) 70%);
+}
+
+.accentColorScheme:not(.css-settings-manager.customColorScheme)
+  :is(.theme-light .markdown-rendered, .theme-light) {
+  color: color-mix(in oklab, var(--text-accent), var(--text-normal) 60%);
+}
+
+/* ------------------ style: custom heading font/ header font ------------------ */
+
+.customFont {
+  --h1-font: var(--custom-h-font);
+  --h2-font: var(--custom-h-font);
+  --h3-font: var(--custom-h-font);
+  --h4-font: var(--custom-h-font);
+  --h5-font: var(--custom-h-font);
+  --h6-font: var(--custom-h-font);
+
+  --h1-weight: var(--custom-h-weight);
+  --h2-weight: var(--custom-h-weight);
+  --h3-weight: var(--custom-h-weight);
+  --h4-weight: var(--custom-h-weight);
+  --h5-weight: var(--custom-h-weight);
+  --h6-weight: var(--custom-h-weight);
+}
+
+/* ------------------ note widht/ file width ------------------ */
+
+body {
+  --file-line-width: 48rem !important;
+}
+:root .m-width {
+  --file-line-width: 75rem !important;
+}
+:root .f-width {
+  --file-line-width: 100% !important;
+}
+
+/* ------------------ style: heading colour/ header colour ------------------ */
+
+body {
+  --h1-color: var(--custom-h-color);
+  --h2-color: var(--custom-h-color);
+  --h3-color: var(--custom-h-color);
+  --h4-color: var(--custom-h-color);
+  --h5-color: var(--custom-h-color);
+  --h6-color: var(--custom-h-color);
+}
+
+/* ------------------ lines ------------------ */
+/* I found this idea here https://note.com/indigo372/n/n0c96bac9a1eb */
+
+body:not(.css-settings-manager.lines) {
+  input.prompt-input:hover,
+  input.prompt-input:focus,
+  input.prompt-input:focus-visible,
+  .suggestion-item,
+  .tree-item-self.is-clickable {
+    border-bottom: var(--custom-thin-width) solid var(--custom-gray-color);
+    border-radius: 0;
+  }
+}
+
+/* @settings
+
+name: Check styling settings
+id: mythins
+settings:
+
+    - 
+        id: noita
+        title: My Toggle
+        type: class-toggle
+        default: false
+    - 
+        id: editMode
+        title: Disable edit mode indicator
+        type: class-toggle
+        default: false
+    - 
+        id: outlineNumber
+        title: Disable outline numbering
+        type: class-toggle
+        default: false
+    - 
+        id: accentedIcons
+        title: Accent coloured icons
+        type: class-toggle
+        default: false
+    - 
+        id: interchange
+        title: Interchange primary and secondary colours
+        type: class-toggle
+        default: false
+    - 
+        id: hide-v-title
+        title: Hide vault title
+        type: class-toggle
+        default: false
+    - 
+        id: linkIcon
+        title: Disable link icons
+        type: class-toggle
+        default: false
+    - 
+        id: folderIcon
+        title: Disable folder icon
+        type: class-toggle
+        default: false
+    - 
+        id: customTask
+        title: Disable custom checkboxes
+        type: class-toggle
+        default: false
+    - 
+        id: vaultStyle
+        title: Disable vault title styling
+        type: class-toggle
+        default: false
+    - 
+        id: lines
+        title: Disable lines in command palette & file explorer
+        type: class-toggle
+        default: false
+    -
+        id: accentColorScheme
+        title: Colour scheme with accent colour
+        type: class-toggle
+        default: false
+    - 
+        id: customColorScheme
+        title: Custom colour scheme
+        type: class-toggle
+        default: false
+
+    - 
+        id: cColor
+        title: Choose colour for colour scheme
+        type: variable-color
+        format: hex
+        default: '#8A5CF5'
+    - 
+        id: customFont
+        title: Use custom font for headings
+        type: class-toggle  
+        default: false;
+    - 
+        id: custom-h-font
+        title: heading font
+        description: Font used for the user interface
+        type: variable-text
+        default: satoshi
+
+    - 
+        id: custom-h-weight
+        title: heading font weight
+        type: variable-text
+        default: bold
+    - 
+        id: custom-h-color
+        title: Heading colour
+        type: variable-color
+        format: hex
+        opacity: false
+        default: '#007AFF'
+*/
+
+.progress-bar-message {
+  display: none !important;
+}
+.progress-bar::before {
+  content: "Building Your Mental Workspace...";
+  font-size: 5rem;
+  padding-bottom: 1rem;
+}
